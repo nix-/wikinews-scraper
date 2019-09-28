@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import requests
 from bs4 import BeautifulSoup
+from article import Article
 
 
 def get_latest_news_links():
@@ -26,7 +27,3 @@ def get_main_news_links():
                x.find('span', attrs={"class": "l_title"}).find('a').text] for x in articles]
 
     return m_list
-
-
-print(get_main_news_links())
-print(get_latest_news_links())
