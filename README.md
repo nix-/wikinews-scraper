@@ -1,10 +1,6 @@
 # wikinews-scraper
 > Wikinews article-content scraper written in Python.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
 The code provides to developer easy way for scraping the content of [Wikinews](https://en.wikinews.org/wiki/Main_Page).
 
 Components that can be easly access are:
