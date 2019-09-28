@@ -16,20 +16,27 @@ Components that can be easly access are:
 - related-articles,
 - source-articles and etc.
 
-![](img/wikin-article.png)
+![Wikinews Article](img/wikin-article.png)
 
-## Installation
+## Dependencies
 
-OS X & Linux:
+The folowing packages are required:
+- [requests](https://pypi.org/project/requests/)
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
+
+If you do not have them, for more info how to install them according your OS please find more information on the internet.
+
+## Starting the demo
+
+The demo.py is the first point that need to be addressed.
+
+Script first is scraping (from the main page) all of the article's links.
+Second scraping-stage is getting the elements of the whole article (given throught article's link).
+
+Linux:
 
 ```sh
-npm install my-crazy-module --save
-```
-
-Windows:
-
-```sh
-edit autoexec.bat
+python3 demo.py
 ```
 
 ## Usage example
