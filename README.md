@@ -8,12 +8,13 @@
 The code provides to developer easy way for scraping the content of [Wikinews](https://en.wikinews.org/wiki/Main_Page).
 
 Components that can be easly access are:
-- content,
 - headline,
+- body,
 - date,
+- photos,
+- entities,
 - related-articles,
-- source-articles,
-- photos and etc.
+- source-articles and etc.
 
 ![](img/wikin-article.png)
 
