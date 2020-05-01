@@ -22,7 +22,7 @@ class Article:
             self.related = [[]]
             self.sources = [[]]
 
-        else: # the link is provided
+        else:  # the link is provided
             self.link = link
             self.topic = self.get_heading()
             self.paragraphs = self.get_paragraph()
@@ -53,7 +53,8 @@ class Article:
         # take the images from the article
         a_img = self.soup.find_all('div', attrs={"class": "thumbinner"})
         # todo: this need to be checked
-        list = [[img_link_correction(x['src']) for x in imgs.find_all('img', attrs={"class": "thumbimage"})] for imgs in a_img]
+        list = [[img_link_correction(x['src']) for x in imgs.find_all('img', attrs={"class": "thumbimage"})] for imgs in
+                a_img]
         return list
 
     def get_entities(self):
@@ -62,9 +63,10 @@ class Article:
         # Get Entities
         entities_in_paragraph = [[[e.text, e['href']] for e in n] for n in [m.find_all('a') for m in a_paragraph]]
         matching = [[[[correct_entity_link(entity), (match.start(), match.end(), idx)]
-                        for match in re.finditer(entity[0], paragraph[0])]
-                       for entity in entities]
-                      for entities, paragraph, idx in zip(entities_in_paragraph, self.paragraphs, range(len(self.paragraphs)))]
+                      for match in re.finditer(entity[0], paragraph[0])]
+                     for entity in entities]
+                    for entities, paragraph, idx in zip(entities_in_paragraph, self.paragraphs,
+                                                        range(len(self.paragraphs)))]
         return matching  # entities_in_paragraph
 
     def get_related_articles(self):
@@ -81,7 +83,8 @@ class Article:
         sources = self.soup.find(text="Sources")
         if sources:
             sources = sources.findNext('ul').find_all('li')  # .contents[0]
-            list = [[found_link(m.find('a', attrs={"class": "external text"})), get_str_date(m.find_all(text=True, recursive=False))]
+            list = [[found_link(m.find('a', attrs={"class": "external text"})),
+                     get_str_date(m.find_all(text=True, recursive=False))]
                     for m in sources]
             return list
         return []
@@ -101,8 +104,8 @@ class Article:
         cs.print_header('# Date ->')
         print(self.date)
 
-        #cs.print_header('# Paragraphs ->')
-        #print(self.paragraphs)
+        # cs.print_header('# Paragraphs ->')
+        # print(self.paragraphs)
 
         cs.print_header('# Images ->')
         for img in self.img:
@@ -113,7 +116,8 @@ class Article:
             cs.print_green('  * Paragraph ' + str(p_index))
             print(self.paragraphs[p_index])
             for entity in p_enty:
-                print(entity[0])
+                if len(entity) > 0:
+                    print(entity[0])
 
         cs.print_header('# Realated ->')
         for related in self.related:
